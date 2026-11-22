@@ -1,0 +1,10 @@
+# Render Blueprint: one free web service. The database is a free Neon Postgres (see docs/DEPLOY.md).
+services:
+  - type: web
+    name: passgo
+    runtime: docker
+    plan: free
+    healthCheckPath: /login.php
+    envVars:
+      - key: DATABASE_URL
+        sync: false   # paste your Neon connection string in the Render dashboard
